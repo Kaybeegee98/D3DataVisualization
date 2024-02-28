@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="description"    content="COS30045 Data Visualisation Project"/>
+        <meta name="keywords"       content="HTML, CSS, D3"/>
+        <meta name="author"         content="Kyle Gibbs, Lachie Ho"/>
+    
+        <title>Migration to and from Australia</title>
+
+       <link rel="stylesheet" href="Styles.css"/>
+       <script src="https://d3js.org/d3.v6.min.js"></script> 
+       <script src="BarGraphScript.js"></script>
+       <script src="LineGraphScript.js"></script>
+       <script src="PieGraphScript.js"></script>
+       <script src="StackedBarGraphScript.js"></script>
+    </head>
+    <body>
+        <div class="leftDiv"></div>
+        <div class="middleDiv">
+            <h1 class="mainTitle">Migration to and from Australia</h1>
+            <br><br>
+            <div class="textBox">
+                <h1>Overseas Migration to Australia</h1>
+                <p><span class="highlight">
+                    Migration is defined as the movement from one
+                    country, place or locality to another. 
+                    Migration can occur from a number of different
+                    factors like unemployment rate, inflation rate 
+                    and cost of living. Increasingly more and more people are being displaced from their homes due to world events. In this project 
+                    we want to understand why migration occurs. 
+                    To help show this, will be using graph visualisations as a way to gauge the number of people migrating to Australia from other countries. 
+                    <br><br>
+                    The ultimate goal of these Visualisations is to provide information to the user about people migrating to Australia.
+                    The website will allow users to:
+                    </span><ul>
+                        <li><span class="highlight">Understand why migration occurs</span></li>
+                        <li><span class="highlight">Which counties people are migrating away from</span></li>
+                        <li><span class="highlight">Why people are migrating and what are the factors</span></li>
+                        <li><span class="highlight">To understand the trend of migration</span></li>
+                    </ul><span class="highlight">
+                    Our website will include different forms of visualisations aimed at converying different data sets.
+                    <br><br>
+                    This bar graph shows the figures of Net Overseas migration to Australia between the years of 2014 and 2022.
+                </span></p>
+            </div>
+            <div class="graph barDiv">
+               <p class="barGraph"></p>
+               <script>
+                barInit();
+               </script>
+               <p id="barGraph"></p> 
+            </div>
+            <br>
+            <div class="textBox">
+                <p><span class="highlight">
+                    Overseas migration is the net gain or loss of population through international migration. 
+                    This bar chart is showing the net overseas migration from the years of 2014 to 2022 that are coming into Australia. 
+                    As you can see from the bar chart, there is a steady increase in the population of migrants that are coming into Australia. 
+                    From 2014 to 2017 the population keeps on increasing every year at a steady rate. From 2016 to 2017 there is a big increase in population from 206.23 to 263.35 
+                    which is one of the biggest increases found within our selected time frame.<br><br>
+                    From 2017 to 2020 the net overseas migration to Australia slowly decreased year by year and in 2021 there was a drop in the 
+                    population of migrants. We can assume that this is caused by the COVID-19 pandemic and Australia's lockdowns so migrants
+                    would be return to their home countries. This is indicated in the bar chart under the 2021 section when the bar goes down which goes below 0 and 
+                    we get the value coming up to be -84.94.<br><br>
+                    This would probably mean that 84.94 thousand people have left Australia to go back to their country. In 2022 when the COVID-19 lockdowns ended, there was a sharp increase
+                    to people migrating back to Australia. For this year there was an increase of around 170.92 thousand. 
+                </span></p>
+            </div>
+            <br>
+            <h1 class="websiteTitle">Overseas Born Population using a pie chart</h1>
+
+            <div class="graph pieDiv">
+                <script>
+                    pieInit();
+                </script>
+                <p id="pieGraph"></p>
+            </div>
+            <div class="textBox">
+                <p><span class="highlight">
+                    The pie chart above shows the overall overseas-born population in 2020. 
+                    The overseas-born population is people that are born overseas but have migrated to Australia. 
+                    In 2020, more than 7.6 million people living in Australia were born overseas, 
+                    with those born in England continuing to be the largest group which is depicted in the pie chart with blue colour. Also in the pie chart, 
+                    we can see the other countries that are associated with the people that migrate into Australia. These countries include India, China, 
+                    New Zealand, The Philippines and South Africa. As shown in the pie chart the second largest 
+                    country is India with 721.05 thousand, then followed by China which is 650.64 thousand, then 
+                    New Zealand with 564.84 thousand, then The Philippines with 310.05 thousand and South Africa with 200.24 thousand.
+                </span></p>
+            </div>
+            <br>
+            <div class="textBox">
+                <h1 class="websiteTitle">Inflation Rates</h1>
+                <h2 class="subheadingTitle">What is Inflation Rate and Why is it Important?</h2>
+                <p> <span class="highlight">
+                    A brief definition of inflation rate is that it's the rate of increase in prices over a given period. Typically if a country has a higher inflation rate, 
+                    it means the cost of living increases quicker than those countries with a lower inflation rate. When looking at different countries migrating to Australia, 
+                    a question we wanted to answer was, “Why do people migrate to Australia?”. A generally lower cost of living was one of our proposed answers to this question, 
+                    especially when combined with a lower unemployment rate (more on that later).
+                    The below graph is set up to allow users to view the difference in inflation rates between countries moving to Australia and Australia itself. From this, 
+                    we hope we can see patterns in the inflation rates that might describe why people are migrating to Australia.
+                    The rationale we are thinking about during this is if a country has a disproportionately large inflation rate when compared to Australia, then the migration 
+                    rate to Australia should be larger.
+                </span></p>
+            </div>
+            <br>
+            <div class="graph lineDiv">
+                <h2 class="websiteTitle">Inflation Rates (Seasonally Adjusted) - %</h2>
+                <script>
+                    lineInit();
+                </script>
+                <p id="lineGraph">
+                    <div id="tooltip">
+                        <div class="date"></div>
+                        <div class="percentage"></div>
+                    </div>
+                    <div id="secondtooltip">
+                        <div class="date"></div>
+                        <div class="percentage"></div>
+                    </div>
+                </p>
+                <select id="lineSelect" onchange="lineSelectGraph()">
+                    <option value="England">England</option>
+                    <option value="India">India</option>
+                    <option value="China">China</option>
+                    <option value="NewZealand">New Zealand</option>
+                    <option value="Philippines">Philippines</option>
+                    <option value="SouthAfrica">South Africa</option>
+                </select>
+                <div id="unemploymentText">Unemployment Text Template Location</div>
+            </div>
+            <br>
+            <div class="textBox">
+                <h2 class="subheadingTitle">Inflation Rate Results</h2>
+                <p><span class="highlight">
+                    Looking at all the different inflation rates compared to each other, we should be able to determine if the Inflation rate has some sway over why people migrate to Australia. 
+                    From the different charts, the countries that have the worst inflation rates over the years would appear to belong to;
+                    </span><ul>
+                        <li><span class="highlight">India, who had the consistently highest inflation rate </span></li>
+                        <li><span class="highlight">England, who has had the highest inflation rate since October 2021</span></li>
+                        <li><span class="highlight">South Africa, which may not be the highest but has never been lower than Australia</span></li>
+                    </ul><span class="highlight">
+                    When comparing this to the Overseas Born Population pie chart (which looked at overseas migration in the year 2020), we can see that the two countries with the most migration were India and England. 
+                    From this, we can infer that there is in fact a connection between the high inflation rate and migration towards Australia, although it may not be the only factor. New Zealand sits at the fourth highest migration tally, even though its inflation rate is comparable to Australia.
+    
+                </span></p>
+            </div>
+            <br>
+            <div class="textBox">
+                <h1 class="websiteTitle">Unemployment Rates</h1>
+                <h2 class="subheadingTitle">What is Unemployment Rate and Why Does it Matter?</h2>
+                <p><span class="highlight">
+                    The unemployment rate is the amount of the available labour force that does not currently hold a job. 
+                    In this instance, we are looking at individuals over the age of 18 for the labour force. The higher the unemployment rate is, the less people are working. 
+                    This can be caused by a few different factors, including but not limited to; 
+                </span><ul>
+                    <li><span class="highlight">Economic Downturn</span></li>
+                    <li><span class="highlight">Education</span></li>
+                    <li><span class="highlight">Job Availability</span></li>
+                    <li><span class="highlight">Amount of individuals entering the labour force at a given time</span></li>
+                </ul><span class="highlight">
+                    While many of these factors are difficult to track, one is especially important for our data, and that is an economic downturn. 
+                    Due to the effect COVID-19 had on the world during the years 2020 and 2021, we can presume to see an increase in unemployment 
+                    rates for all countries during this time. That is due to workplaces not earning enough money to pay all their current staff, resulting in lay-offs. 
+                    For the sake of our analysis, we are looking to see if there is a correlation between Australia having a better employment rate 
+                    (lower unemployment) than other countries. This should show us if a large number of people are migrating to Australia for work.
+                </span></p>
+            </div>
+            <div class="graph stackedBarDiv">
+                <h2 class="websiteTitle">Unemployment Rates - %</h2>
+                <h3 class="subheadingTitle">Country Keys</h3>
+                <div>
+                    <p class="keys australia">Australia</p>
+                    <p class="keys england">England</p>
+                    <p class="keys india">India</p>
+                    <p class="keys china">China</p>
+                    <p class="keys newzealand">New Zealand</p>
+                    <p class="keys philippines">Philippines</p>
+                    <p class="keys southafrica">South Africa</p>
+                </div>
+                <br><br>
+                <script>
+                    stackedBarInit();
+                </script>
+                <p id="stackedBarGraph"></p>
+                <p>
+                    Each bar graph is stacked in the following order, from bottom to top:<br>
+                    &emsp; Australia - England - India - China - New Zealand - Philippines<br>
+                    The key above the graph showcases which colour is associated with which country.
+                </p>
+            </div>
+            <div class="textBox">
+                <h2 class="subheadingTitle">Unemployment Rate Results</h2>
+                <p><span class="highlight">
+                    After analysing the Stacked Bar Graph, we are able to figure out a few things.
+                    Firstly, South Africa has a consistent unemployment rate of around 30%, which is disproportionally higher than any other country. It would be safe to assume anyone migrating from South Africa to Australia would be doing so for work.
+                    Moving on, we can see that before 2020, three countries had, on average, a lower unemployment rate than Australia. These countries are England, China and New Zealand. After July 2021, both China's and England’s unemployment rates became more comparable to Australia’s, staying relatively close to each other. New Zealand however, continued to have a lower unemployment rate than any other country on the list.<br>
+                    From this, we can gather a few things:<br>
+                    Migrators from countries such as the Philippines, South Africa and India most likely move due to there being a much lower unemployment rate in Australia.<br>
+                    For the other countries on this list, while Australia’s unemployment rate is by no definition poor, we can assume that there are most likely other factors contributing to individuals seeking to migrate.
+
+                </span></p>
+            </div>
+            <br>
+            <div class="textBox">
+                <h1 class="websiteTitle">Conclusion</h1>
+                <p><span class="highlight">
+                    Looking at every piece of information gathered from the graphs above, we can begin to make some assumptions.<br><br>
+                    <b><span class="bolden">First</span></b>, both England and China have had historically higher inflation rates (with the exception of China after October 2020) while having lower unemployment rates than Australia. This means that, while those countries are theoretically easier to find jobs in, the higher inflation rate has pushed people to migrate to Australia, which has the combined bonus of both a low inflation rate and a low unemployment rate.<br>
+                    <b><span class="bolden">Secondly</span></b>, countries such as South Africa, The Philippines and India have both a high inflation rate and a high unemployment rate. This combination makes it easy to see that people migrating to Australia are seeking to have a lower cost of living as well as more job opportunities available.<br>
+                    <b><span class="bolden">Lastly</span></b>, the only country that seems to cause issues for our theory is New Zealand. Both it’s and Australia’s inflation rates, as well as the unemployment rates, are practically identical. The only major difference is New Zealand’s recent spike in the inflation rate, would doesn’t describe why, historically, New Zealand contains the fourth highest amount of overseas-born population that migrates to Australia.<br>
+                    <br>
+                    With these assumptions in mind, we believe it is safe to assume that the Inflation Rate and Unemployment Rate are two major contributing factors as to why people migrate to Australia. With Australia holding such a large number of cultures in it, it makes it easy for these countries to migrate to Australia for the above-mentioned reasons, with still holding onto their home country’s community.
+                </span></p>
+            </div>
+            <footer class="footerText">COS30045 Data Visualisation, Kyle Gibbs & Lachie Ho</footer>
+        </div>
+        <div class="rightDiv"></div>
+    </body>
+</html>

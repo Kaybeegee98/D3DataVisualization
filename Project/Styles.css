@@ -1,0 +1,126 @@
+html {
+    overflow-y: scroll;
+}
+
+body {
+    /*background-color: #cc9966;      Set consistent Background Colour*/
+    background-image: linear-gradient(180deg, #996633, #cccc99);
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+
+.rightDiv, .leftDiv {
+    flex-basis: 20%;
+    height: 100%;
+}
+
+.middleDiv {
+    /*background-color: #d2d2d2;    This is the primary Div*/
+    background-image: linear-gradient(180deg, #c5c5c5, #ececec);
+    flex-basis: 60%;
+    height: 100%;
+    border: double;
+}
+
+.mainTitle {
+    text-align: center;
+    font-size: 48px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.websiteTitle {
+    text-align: center;
+}
+
+.subheadingTitle {
+    text-align: left;
+}
+
+.textBox {
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 115%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.highlight {
+   color: #0e0e0e;
+}
+
+.bolden {
+    color: #003399;
+}
+
+.graph {                        /*Setup the backgrounds for the Graph Elements*/
+    width: 75%;
+    margin: auto;
+    padding: 2em;
+    background-color: #efefef;
+    border: outset;
+    border-width: 5px;
+    border-color: rgba(255, 51, 51, 75%);
+}
+
+.graph .stackedBarDiv {
+    display: inline;
+}
+
+.keys{
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-style: inset;
+    border-color: slategrey;
+}
+
+.australia{
+    background-color: pink;
+}
+
+.england{
+    background-color: pink;
+}
+
+.india{
+    background-color: pink;
+}
+
+.china{
+    background-color: pink;
+}
+
+.newzealand{
+    background-color: pink;
+}
+
+.philippines{
+    background-color: pink;
+}
+
+.southafrica{
+    background-color: pink;
+}
+
+#lineGraph {
+    fill: none;
+    stroke: slategray;
+    stroke-width: 0.5;
+}
+
+#tooltip, #secondtooltip {
+    border: 1px solid #ccc;
+    position: absolute;
+    padding: 10px;
+    background-color: #b6b6b6;
+    display: none;
+    pointer-events: none;
+}
+
+.footerText {
+    padding: 2em;
+    padding-bottom: 1em;
+}
